@@ -1,0 +1,22 @@
+[
+    {
+       "id": "011218b4-ac07-4d69-92c9-a27976481138",
+       "title": "Decoração",
+       "description": "Decoração de interiores",
+       "price": 8000,
+       "paymentMethods": "[\"PayPal\",\"boleto\"]",
+       "dueDate": "2021-12-30 00:00:00",
+       "taken": true,
+       "apiKeyId": "291b2d5d-77e2-402f-8bbb-635e73274daf"
+    },
+    {
+       "id": "01a314a5-3a47-4367-b3e5-25318feb655a",
+       "title": "Web design",
+       "description": "Implementador de páginas web",
+       "price": 2000,
+       "paymentMethods": "[\"Cartão de Crédito\",\"Cartão de Débito\",\"PayPal\",\"Boleto\"]",
+       "dueDate": "2021-10-16 00:00:00",
+       "taken": false,
+       "apiKeyId": "144134a4-8efa-4b2e-a4d4-0b0d41b25795"
+    }
+]
