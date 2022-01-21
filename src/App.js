@@ -2,7 +2,8 @@
 import React from 'react';
 import './App.css';
 import Produtos from './components-Enzo/Produtos';
-
+import Carrinho from './carrinhoComprasDrica/Carrinhos';
+import { Fundo } from './Background';
 
 
 
@@ -43,10 +44,10 @@ export default class App extends React.Component {
   
   render(){
     return (
-      <div>
-        <h1>metaverso</h1>
-        <Produtos />
-      </div>
+      <Fundo>
+          <h1 className='h1'>METAVERSO</h1>
+        <Carrinho />
+      </Fundo>
     );
   }
   
