@@ -180,8 +180,8 @@ export default class App extends React.Component {
                 <BotaoCrescenteDecrescente>
                     <select value={this.state.ordenar} onChange={this.setOrdenar}>
                         <option>Nenhum</option>
-                        <option value="decrescente"  >Decrescente</option>
-                        <option value="crescente"  >Crescente</option>
+                        <option value="decrescente"  >Crescente</option>
+                        <option value="crescente"  >Decrescente</option>
                     </select>
                 </BotaoCrescenteDecrescente>
                 <Container>
