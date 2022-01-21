@@ -7,6 +7,6 @@ export const Fundo = styled.div `
   background-size: cover;
   display: table;
   width: 100%;
-  padding-bottom: 1.2%;
+  height: 100vh
 
 `
