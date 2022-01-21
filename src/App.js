@@ -1,7 +1,7 @@
 import React from "react";
 import { Img, Meio, Container, MeioCont, But, LateralL, LateralR, Butt, Remov } from "./carrinhoComprasDrica/Style-Carrinho";
 
-import { Fundo } from './Background'
+import { BotaoCrescenteDecrescente, Fundo } from './Background'
 import './App.css'
 
 import Marte from './img/planeta-marte.jpg'
@@ -13,7 +13,7 @@ import Saturno from './img/saturno.jpg'
 export default class App extends React.Component {
 
     state = {
-
+        ordenar:"",
         query: "",
         minPrice: "",
         maxPrice: "",
@@ -21,49 +21,53 @@ export default class App extends React.Component {
         total: 0,
         produtos: [{
             id: 1,
-            nome: 'Marte',
+            nome: 'Viagem para Marte',
             preco: 1200000,
             imagem: Marte,
             qtd: 0,
         },
         {
             id: 2,
-            nome: 'Júpiter',
+            nome: 'Viagem para Júpiter',
             preco: 2800000,
             imagem: Júpiter,
             qtd: 0,
         },
         {
             id: 3,
-            nome: 'Netuno',
+            nome: 'Viagem para Netuno',
             preco: 5700000,
             imagem: Netuno,
             qtd: 0,
         },
         {
             id: 4,
-            nome: 'Saturno',
+            nome: 'Viagem para Saturno',
             preco: 10,
             imagem: Saturno,
             qtd: 0,
         }]
     }
-
-    updateQuery=(ev)=>{
+    setOrdenar = (ev) => {
         this.setState({
-          query: ev.target.value
+            ordenar: ev.target.value
         })
-      }
-      updateMinPrice=(ev)=>{
+    }
+    updateQuery = (ev) => {
         this.setState({
-          minPrice: ev.target.value
+            query: ev.target.value
         })
-      }
-    updateMaxPrice=(ev)=>{
+    }
+    updateMinPrice = (ev) => {
         this.setState({
-          maxPrice: ev.target.value
+            minPrice: ev.target.value
         })
-      }
+    }
+    updateMaxPrice = (ev) => {
+        this.setState({
+            maxPrice: ev.target.value
+        })
+    }
 
     addProdutoCarrinho = (id) => {
         //Adiciono o produto pelo ID
@@ -128,16 +132,7 @@ export default class App extends React.Component {
 
     render() {
 
-        /* const produtosMeio = this.state.produtos.map((produtos, index) => {
-            return (
-                <MeioCont key={index}>
-                    <h2>{produtos.nome}</h2>
-                    <Img src={produtos.imagem} alt="Imagem do planeta"></Img>
-                    <h3>Por apenas: {produtos.preco}</h3>
-                    <But onClick={() => this.addProdutoCarrinho(produtos.id)}>Adicionar Produto </But>
-                </MeioCont>
-            )
-        }) */
+
         const lateralCarrinho = this.state.arrayProdutos.map((carrinho, id) => {
             return (
                 <div>
@@ -149,63 +144,83 @@ export default class App extends React.Component {
             )
         })
 
-        const filtroFinal = this.state.produtos.filter((produto)=>
-        { return produto.nome.toLowerCase().includes(this.state.query.toLowerCase())
+        const filtroFinal = this.state.produtos.filter((produto) => {
+            return produto.nome.toLowerCase().includes(this.state.query.toLowerCase())
         })
-        .filter((produto)=>{
-            return this.state.minPrice === "" || produto.preco >= this.state.minPrice
-        })
-        .filter((produto)=>{
-            return this.state.maxPrice === "" || produto.preco >= this.state.maxPrice
-        })
-        .map((produtos, index) => {
-            return (
-                <MeioCont key={index}>
-                    <h2>{produtos.nome}</h2>
-                    <Img src={produtos.imagem} alt="Imagem do planeta"></Img>
-                    <h3>Por apenas: {produtos.preco}</h3>
-                    <But onClick={() => this.addProdutoCarrinho(produtos.id)}>Adicionar Produto </But>
-                </MeioCont>
-            )
-        })
-    
+            .filter((produto) => {
+                return this.state.minPrice === "" || produto.preco >= this.state.minPrice
+            })
+            .filter((produto) => {
+                return this.state.maxPrice === "" || produto.preco >= this.state.maxPrice
+            })
+            .sort((a,b)=>{
+                if(this.state.ordenar === "decrescente"){
+                    return a.preco - b.preco
+                }else if(this.state.ordenar === "crescente"){
+                    return b.preco - a.preco
+                }
+                    
+                
+            })
+            .map((produtos, index) => {
+                return (
+                    <MeioCont key={index}>
+                        <h2>{produtos.nome}</h2>
+                        <Img src={produtos.imagem} alt="Imagem do planeta"></Img>
+                        <h3>Por apenas: {produtos.preco}</h3>
+                        <But onClick={() => this.addProdutoCarrinho(produtos.id)}>Adicionar Produto </But>
+                    </MeioCont>
+                )
+            })
+
+            
         return (
             <Fundo>
                 <h1 className="h1">METAVERSO</h1>
+                <BotaoCrescenteDecrescente>
+                    <select value={this.state.ordenar} onChange={this.setOrdenar}>
+                        <option>Nenhum</option>
+                        <option value="decrescente"  >Decrescente</option>
+                        <option value="crescente"  >Crescente</option>
+                    </select>
+                </BotaoCrescenteDecrescente>
                 <Container>
 
                     <LateralL>
                         <h1>FILTRO</h1>
-    <div>
-       <input 
-       placeholder = "Pesquisa"
-       value={this.state.query}
-       onChange={this.updateQuery}
-       />
-    </div>
+                        <div>
+                            <input
+                                placeholder="Pesquisa"
+                                value={this.state.query}
+                                onChange={this.updateQuery}
+                            />
+                        </div>
 
-    <div>
-       <input
-       type = "number" 
-       placeholder = "Preço minimo"
-       value={this.state.minPrice}
-       onChange={this.updateMinPrice}
-       />
-    </div>
+                        <div>
+                            <input
+                                type="number"
+                                placeholder="Preço minimo"
+                                value={this.state.minPrice}
+                                onChange={this.updateMinPrice}
+                            />
+                        </div>
 
-    <div>
-       <input 
-       type = "number" 
-       placeholder = "Preço Maximo"
-       value={this.state.maxPrice}
-       onChange={this.updateMaxPrice}
-       />
-    </div>
-         
+                        <div>
+                            <input
+                                type="number"
+                                placeholder="Preço Maximo"
+                                value={this.state.maxPrice}
+                                onChange={this.updateMaxPrice}
+                            />
+                        </div>
+
                     </LateralL>
 
                     <Meio>
+
+
                         {filtroFinal}
+
                     </Meio>
 
                     <LateralR>
