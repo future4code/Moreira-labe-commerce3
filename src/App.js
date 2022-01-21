@@ -13,6 +13,10 @@ import Saturno from './img/saturno.jpg'
 export default class App extends React.Component {
 
     state = {
+
+        query: "",
+        minPrice: "",
+        maxPrice: "",
         arrayProdutos: [],
         total: 0,
         produtos: [{
@@ -44,6 +48,22 @@ export default class App extends React.Component {
             qtd: 0,
         }]
     }
+
+    updateQuery=(ev)=>{
+        this.setState({
+          query: ev.target.value
+        })
+      }
+      updateMinPrice=(ev)=>{
+        this.setState({
+          minPrice: ev.target.value
+        })
+      }
+    updateMaxPrice=(ev)=>{
+        this.setState({
+          maxPrice: ev.target.value
+        })
+      }
 
     addProdutoCarrinho = (id) => {
         //Adiciono o produto pelo ID
@@ -108,7 +128,7 @@ export default class App extends React.Component {
 
     render() {
 
-        const produtosMeio = this.state.produtos.map((produtos, index) => {
+        /* const produtosMeio = this.state.produtos.map((produtos, index) => {
             return (
                 <MeioCont key={index}>
                     <h2>{produtos.nome}</h2>
@@ -117,7 +137,7 @@ export default class App extends React.Component {
                     <But onClick={() => this.addProdutoCarrinho(produtos.id)}>Adicionar Produto </But>
                 </MeioCont>
             )
-        })
+        }) */
         const lateralCarrinho = this.state.arrayProdutos.map((carrinho, id) => {
             return (
                 <div>
@@ -129,17 +149,63 @@ export default class App extends React.Component {
             )
         })
 
+        const filtroFinal = this.state.produtos.filter((produto)=>
+        { return produto.nome.toLowerCase().includes(this.state.query.toLowerCase())
+        })
+        .filter((produto)=>{
+            return this.state.minPrice === "" || produto.preco >= this.state.minPrice
+        })
+        .filter((produto)=>{
+            return this.state.maxPrice === "" || produto.preco >= this.state.maxPrice
+        })
+        .map((produtos, index) => {
+            return (
+                <MeioCont key={index}>
+                    <h2>{produtos.nome}</h2>
+                    <Img src={produtos.imagem} alt="Imagem do planeta"></Img>
+                    <h3>Por apenas: {produtos.preco}</h3>
+                    <But onClick={() => this.addProdutoCarrinho(produtos.id)}>Adicionar Produto </But>
+                </MeioCont>
+            )
+        })
+    
         return (
             <Fundo>
                 <h1 className="h1">METAVERSO</h1>
                 <Container>
 
                     <LateralL>
-                        <h1>Eu sou um filtro</h1>
+                        <h1>FILTRO</h1>
+    <div>
+       <input 
+       placeholder = "Pesquisa"
+       value={this.state.query}
+       onChange={this.updateQuery}
+       />
+    </div>
+
+    <div>
+       <input
+       type = "number" 
+       placeholder = "Preço minimo"
+       value={this.state.minPrice}
+       onChange={this.updateMinPrice}
+       />
+    </div>
+
+    <div>
+       <input 
+       type = "number" 
+       placeholder = "Preço Maximo"
+       value={this.state.maxPrice}
+       onChange={this.updateMaxPrice}
+       />
+    </div>
+         
                     </LateralL>
 
                     <Meio>
-                        {produtosMeio}
+                        {filtroFinal}
                     </Meio>
 
                     <LateralR>
