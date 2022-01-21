@@ -2,6 +2,7 @@
 import React from 'react';
 import './App.css';
 import Produtos from './components-Enzo/Produtos';
+import ProdutosCard from './components-Enzo/ProdutosCard';
 
 
 
@@ -46,6 +47,7 @@ export default class App extends React.Component {
       <div>
         <h1>metaverso</h1>
         <Produtos />
+        <ProdutosCard />
       </div>
     );
   }
