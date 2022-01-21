@@ -1,4 +1,4 @@
-import { CardContainer, CardFooter, CardContent } from "./style";
+import { CardContainer, CardFooter, CardContent } from "./Card/teste/style";
 
 export function Card(props) {
    return <CardContainer>

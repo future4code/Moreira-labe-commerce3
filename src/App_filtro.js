@@ -10,8 +10,7 @@ state = {
   viagens: listaViagens,
   query: "",
   minPrice: "",
-  maxPrice: ""
-  
+  maxPrice: ""  
 }
 
 updateQuery(ev){
@@ -19,22 +18,19 @@ updateQuery(ev){
     query: ev.target.value
   })
 }
-
 updateMinPrice(ev){
   this.setState({
     minPrice: ev.target.value
   })
 }
-
 updateMaxPrice(ev){
   this.setState({
     maxPrice: ev.target.value
   })
 }
 
-
-
 render() {
+  
   return <>
 
      <div>
@@ -62,7 +58,6 @@ render() {
        onChange={this.updateMaxPrice}
        />
     </div>
-
 
       {this.state.viagens
         .filter(viagem =>{
