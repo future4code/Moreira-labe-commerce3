@@ -11,8 +11,9 @@
 
 
 ### Acesse ao projeto
-boiling-hobbies.surge.sh
-https://boiling-hobbies.surge.sh
+striped-rabbit.surge.sh
+https://striped-rabbit.surge.sh
+
 
 ### IMAGEM EM DESKTOP E MOBILE
 
