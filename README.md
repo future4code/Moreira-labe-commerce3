@@ -4,7 +4,7 @@
 - `Funcionalidade 1`: Filtra por: valor máximo, mínimo, nome e ordem crescente/decrescente.
 - `Funcionalidade 2`: Adiciona o produto ao carrinho e o remove.
 - `Funcionalidade 3`: Faz a soma dos produtos.
-- `Funcionalidade 4`: Estar responsivo ao usuário.
+- `Funcionalidade 4`: Esta responsivo ao usuário.
 
 
 ## Autores
