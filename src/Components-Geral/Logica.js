@@ -4,8 +4,7 @@ import { Img, Meio, Container, MeioCont, But, Espac, LateralR, Butt, Remov, Word
 import { BotaoCrescenteDecrescente, Fundo } from './Background'
 import '../App.css'
 
-import { Switch, Route, Link } from 'react-router-dom'
-import Compras from "../Pages/Compras";
+import { Link } from 'react-router-dom'
 
 import Marte from './img/planeta-marte.jpg'
 import Júpiter from './img/jupiter.jpg'
@@ -277,6 +276,8 @@ export default class Logica extends React.Component {
                         <Img src={produtos.imagem} alt="Imagem do planeta"></Img>
                         <h3>Por apenas: {produtos.preco}</h3>
                         <But onClick={() => this.addProdutoCarrinho(produtos.id)}>Adicionar Produto </But>
+
+                        <Link to={JSON.stringify(produtos.id)}><But >Mais detalhes do Produto</But></Link>                       
                     </MeioCont>
                 )
             })
@@ -317,9 +318,6 @@ export default class Logica extends React.Component {
                         <Link to="/compras"><But>Finalizar Compra</But></Link>
                     </LateralR>
                 </Container>
-                <Switch>
-                    <Route exact path='/compras' component={Compras} />
-                </Switch>
             </Fundo>
         )
     }

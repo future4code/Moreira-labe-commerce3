@@ -17,10 +17,6 @@ const Fundo = styled.div`
         background: black;
     }
 `
-const Text = styled.h3 `
-    color: white;
-`
-
 const Butt = styled.button`
     height: 40px;
     width: 200px;
