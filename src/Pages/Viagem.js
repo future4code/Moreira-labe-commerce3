@@ -71,7 +71,7 @@ export function Viagem() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... o mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -101,7 +101,7 @@ export function Viagem2() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -131,7 +131,7 @@ export function Viagem3() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -159,23 +159,23 @@ export function Viagem4() {
             <div>
                 <Title>Viagem para Saturno</Title>
                 <Text>
-                    Já pensou em aproveitar suas férias em outro planeta,
-                    Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
-                    A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
+                    Já pensou em aproveitar suas férias em outro planeta?
+                    Mundo/Universo? Na METAVERSO você pode viajar para outros
+                    planetas do sistema solar e... no mundo dos animes!
+                    A realidade só depende de você! Aproveite!! que está com <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
-                    Imaginou?? Escorregar pelos Aneis de Saturno
-                    Aproveite, convide os amigos, famílias e cachorros...
+                    Imaginou?? Escorregar pelos Anéis de Saturno?!
+                    Aproveite! Convide seus amigos, famílias e cachorros/gatos...
                     Será ofertado toda comodidade possível na viagem, para
                     evitar quaisquer problemas. Você irá aproveitar o mundo
                     no espaço, andar como os astronautas e tirar a sua <Color>'Self'</Color>
                 </Text>
                 <Text>
-                    O que você está esperando??? Aperte no botão abaixo e faça sua viagem para Saturno!!
+                    O que você está esperando??? Aperte no botão abaixo e garanta sua vaga para Saturno!!
                 </Text>
 
-                <Link to="/loja"><But>Garantir minha vaga!</But></Link>
+                <Link to="/loja"><But>Embarque Conosco</But></Link>
 
             </div>
         </Container>
@@ -191,7 +191,7 @@ export function Viagem5() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -219,7 +219,7 @@ export function Viagem6() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -248,7 +248,7 @@ export function Viagem7() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -276,7 +276,7 @@ export function Viagem8() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -304,7 +304,7 @@ export function Viagem9() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -333,7 +333,7 @@ export function Viagem10() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -360,7 +360,7 @@ export function Viagem11() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -387,7 +387,7 @@ export function Viagem12() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -413,7 +413,7 @@ export function Viagem13() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -443,7 +443,7 @@ export function Viagem14() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
@@ -470,7 +470,7 @@ export function Viagem15() {
                 <Text>
                     Já pensou em aproveitar suas férias em outro planeta,
                     Mundo/Universo? Na METAVERSO você pode, viajar para outros
-                    planetar do sistema solar e... mundo de animes!
+                    planetas do sistema solar e... mundo de animes!
                     A realidade só depende de você! Aproveite que está em <Color>preço promocional!!</Color>
                 </Text>
                 <Text>
