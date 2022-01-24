@@ -13,8 +13,8 @@
 
 
 ### Acesse ao projeto
-Quem fazer o merge, colocar o link do surge aq
-
+frequent-haircut.surge.sh
+https://frequent-haircut.surge.sh
 
 ### IMAGEM EM DESKTOP E MOBILE
 ![Pagina inicial](https://user-images.githubusercontent.com/87716793/150693554-bc65377e-7aa0-4afd-94cb-1639373c6635.png)
