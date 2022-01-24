@@ -1,237 +1,105 @@
 import React from "react";
-import { Img, Meio, Container, MeioCont, But, LateralL, LateralR, Butt, Remov } from "./carrinhoComprasDrica/Style-Carrinho";
+import { Switch, Route, Link } from 'react-router-dom'
+import LoginLoja from "./Pages/LoginLoja";
+import Logica from "./Components-Geral/Logica";
+import Compras from "./Pages/Compras";
+import {Viagem, Viagem2, Viagem3, Viagem4, Viagem5,
+        Viagem6, Viagem7, Viagem8, Viagem9, Viagem10,
+        Viagem11,Viagem12,Viagem13,Viagem14,Viagem15} from "./Pages/Viagem";
+import styled from "styled-components";
 
-import { BotaoCrescenteDecrescente, Fundo } from './Background'
-import './App.css'
-
-import Marte from './img/planeta-marte.jpg'
-import Júpiter from './img/jupiter.jpg'
-import Netuno from './img/netuno.jpg'
-import Saturno from './img/saturno.jpg'
-
+const Lin = styled.span`
+    color: white;
+    text-decoration: none;
+    margin: 0 30px;
+    &:hover {
+        color: orangered;
+        transition: 0.3s;
+    }
+`
+const Nav = styled.nav`
+    text-align: center;
+`
+const Head = styled.header`
+    padding: 20px 0;
+    background-color: black;
+    opacity: 0.9;
+`
+const Foot = styled.footer `
+    width: 100%;
+    padding: 2px 0;
+    background-color: black;
+    opacity: 0.9;
+    position: relative;
+    bottom:0;
+    left:0;
+    color: white;
+    text-align: center;
+`
+const ExDig = styled.span`
+    display: none;
+`
 
 export default class App extends React.Component {
 
-    state = {
-        ordenar:"",
-        query: "",
-        minPrice: "",
-        maxPrice: "",
-        arrayProdutos: [],
-        total: 0,
-        produtos: [{
-            id: 1,
-            nome: 'Viagem para Marte',
-            preco: 1200000,
-            imagem: Marte,
-            qtd: 0,
-        },
-        {
-            id: 2,
-            nome: 'Viagem para Júpiter',
-            preco: 2800000,
-            imagem: Júpiter,
-            qtd: 0,
-        },
-        {
-            id: 3,
-            nome: 'Viagem para Netuno',
-            preco: 5700000,
-            imagem: Netuno,
-            qtd: 0,
-        },
-        {
-            id: 4,
-            nome: 'Viagem para Saturno',
-            preco: 10,
-            imagem: Saturno,
-            qtd: 0,
-        }]
-    }
-    setOrdenar = (ev) => {
-        this.setState({
-            ordenar: ev.target.value
-        })
-    }
-    updateQuery = (ev) => {
-        this.setState({
-            query: ev.target.value
-        })
-    }
-    updateMinPrice = (ev) => {
-        this.setState({
-            minPrice: ev.target.value
-        })
-    }
-    updateMaxPrice = (ev) => {
-        this.setState({
-            maxPrice: ev.target.value
-        })
-    }
-
-    addProdutoCarrinho = (id) => {
-        //Adiciono o produto pelo ID
-        const newLista = this.state.produtos.filter((produto) => {
-            return id === produto.id
-        })
-        this.state.arrayProdutos.push(newLista[0])
-        this.setState({ arrayProdutos: this.state.arrayProdutos })
-
-        //Removo para não ficar repetindo o mesmo nome e apenas somar
-        const removeRepetidos = this.state.arrayProdutos.filter((remove, i) => {
-            return this.state.arrayProdutos.indexOf(remove) === i;
-        })
-        this.state.arrayProdutos.push(removeRepetidos[0])
-        this.setState({ arrayProdutos: removeRepetidos })
-
-        //Adiciono por soma no carrinho 
-        let addNoCarrinho = this.state.produtos.map((valor) => {
-            if (id === valor.id) {
-                return valor.qtd++
-            }
-        })
-    }
-
-    removeProdutoCarrinho = (id) => {
-        //Faço um filtro p/ deixar retornado os diferentes do selecionado
-        const newLista = this.state.produtos.filter((produto) => {
-            return id !== produto.id
-        })
-        this.setState({ arrayProdutos: newLista })
-
-        //Removo para não ficar repetindo o mesmo nome e apenas soma
-        const removeRepetidos = this.state.arrayProdutos.filter((remove, i) => {
-            return this.state.arrayProdutos.indexOf(remove) === i;
-        })
-        this.setState({ arrayProdutos: removeRepetidos })
-
-        //Removo por subtração no carrinho 
-        let removDoCarrinho = this.state.produtos.map((valor) => {
-            if (id === valor.id) {
-                return valor.qtd--
-            }
-        })
-        this.setState({ arrayProdutos: removDoCarrinho })
-
-        //Faço um filtro para retornar apenas os maiores que um
-        let remove = this.state.arrayProdutos.filter((remov) => {
-            return remov.qtd >= 1
-        })
-        this.setState({ arrayProdutos: remove })
-    }
-
-    somaTotalCarrinho = () => {
-        const total = this.state.arrayProdutos;
-        let valotTotal = 0;
-
-        for (let produto of total) {
-            valotTotal += produto.preco * produto.qtd
-        }
-        return valotTotal
-    }
 
     render() {
 
 
-        const lateralCarrinho = this.state.arrayProdutos.map((carrinho, id) => {
-            return (
-                <div>
-                    <Remov key={id}>
-                        <h4>Nome: {carrinho.nome} quantidade: {carrinho.qtd}</h4>
-                        <Butt onClick={() => this.removeProdutoCarrinho(carrinho.id)}>X</Butt>
-                    </Remov>
-                </div>
-            )
-        })
-
-        const filtroFinal = this.state.produtos.filter((produto) => {
-            return produto.nome.toLowerCase().includes(this.state.query.toLowerCase())
-        })
-            .filter((produto) => {
-                return this.state.minPrice === "" || produto.preco >= this.state.minPrice
-            })
-            .filter((produto) => {
-                return this.state.maxPrice === "" || produto.preco >= this.state.maxPrice
-            })
-            .sort((a,b)=>{
-                if(this.state.ordenar === "decrescente"){
-                    return a.preco - b.preco
-                }else if(this.state.ordenar === "crescente"){
-                    return b.preco - a.preco
-                }
-                    
-                
-            })
-            .map((produtos, index) => {
-                return (
-                    <MeioCont key={index}>
-                        <h2>{produtos.nome}</h2>
-                        <Img src={produtos.imagem} alt="Imagem do planeta"></Img>
-                        <h3>Por apenas: {produtos.preco}</h3>
-                        <But onClick={() => this.addProdutoCarrinho(produtos.id)}>Adicionar Produto </But>
-                    </MeioCont>
-                )
-            })
-
-            
         return (
-            <Fundo>
-                <h1 className="h1">METAVERSO</h1>
-                <BotaoCrescenteDecrescente>
-                    <select value={this.state.ordenar} onChange={this.setOrdenar}>
-                        <option>Nenhum</option>
-                        <option value="decrescente"  >Crescente</option>
-                        <option value="crescente"  >Decrescente</option>
-                    </select>
-                </BotaoCrescenteDecrescente>
-                <Container>
+            <div>
+                <Head>
+                    <Nav>
+                        <Link to="/" > <Lin>Inicial </Lin></Link> 
+                        <Link to="/loja" > <Lin>Loja </Lin> </Link> 
+                        <Link to="/compras" > <Lin>Carrinho </Lin> </Link> 
+                        <Link to="/1" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/2" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/3" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/4" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/5" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/6" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/7" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/8" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/9" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/10" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/11" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/12" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/13" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/14" > <ExDig>Viagem </ExDig> </Link> 
+                        <Link to="/15" > <ExDig>Viagem </ExDig> </Link> 
 
-                    <LateralL>
-                        <h1>FILTRO</h1>
-                        <div>
-                            <input
-                                placeholder="Pesquisa"
-                                value={this.state.query}
-                                onChange={this.updateQuery}
-                            />
-                        </div>
-
-                        <div>
-                            <input
-                                type="number"
-                                placeholder="Preço minimo"
-                                value={this.state.minPrice}
-                                onChange={this.updateMinPrice}
-                            />
-                        </div>
-
-                        <div>
-                            <input
-                                type="number"
-                                placeholder="Preço Maximo"
-                                value={this.state.maxPrice}
-                                onChange={this.updateMaxPrice}
-                            />
-                        </div>
-
-                    </LateralL>
-
-                    <Meio>
-
-
-                        {filtroFinal}
-
-                    </Meio>
-
-                    <LateralR>
-                        <h3> Seu Carrinho: </h3>
-                        {lateralCarrinho}
-                        <h4>O total é: U${this.somaTotalCarrinho()},00</h4>
-                    </LateralR>
+                    </Nav>
+                </Head>
+                <main>
+                    <Switch>
+                        <Route exact path='/' component={LoginLoja} />
+                        <Route exact path='/loja' component={Logica} />
+                        <Route exact path='/compras' component={Compras} />
+                        <Route exact path='/1' component={Viagem} />
+                        <Route exact path='/2' component={Viagem2} />
+                        <Route exact path='/3' component={Viagem3} />
+                        <Route exact path='/4' component={Viagem4} />
+                        <Route exact path='/5' component={Viagem5} />
+                        <Route exact path='/6' component={Viagem6} />
+                        <Route exact path='/7' component={Viagem7} />
+                        <Route exact path='/8' component={Viagem8} />
+                        <Route exact path='/9' component={Viagem9} />
+                        <Route exact path='/10' component={Viagem10} />
+                        <Route exact path='/11' component={Viagem11} />
+                        <Route exact path='/12' component={Viagem12} />
+                        <Route exact path='/13' component={Viagem13} />
+                        <Route exact path='/14' component={Viagem14} />
+                        <Route exact path='/15' component={Viagem15} />
 
 
-                </Container>
-            </Fundo>
+                    </Switch>
+                </main>
+
+                <Foot>
+                    <h3>Todos os direitos reservados &copy;</h3>
+                </Foot>
+            </div>
         )
     }
 }
